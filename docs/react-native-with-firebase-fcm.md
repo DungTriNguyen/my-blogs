@@ -4,7 +4,7 @@ outline: deep
 
 # React Native Firebase
 
-Requirement: Bạn phải config [Firebase](/https://rnfirebase.io/) trong React Native vì Firebase Cloud Messaging (FCM) là nền tảng trung gian giúp ứng dụng đăng ký device token, kết nối với server, và gửi – nhận push notification một cách ổn định trên Android và iOS. Không có FCM, app sẽ không có kênh chung để backend gửi thông báo đến thiết bị.
+Requirement: Bạn phải config [Firebase](https://rnfirebase.io/) trong React Native vì Firebase Cloud Messaging (FCM) là nền tảng trung gian giúp ứng dụng đăng ký device token, kết nối với server, và gửi – nhận push notification một cách ổn định trên Android và iOS. Không có FCM, app sẽ không có kênh chung để backend gửi thông báo đến thiết bị.
 
 ## Mô hình Connect
 

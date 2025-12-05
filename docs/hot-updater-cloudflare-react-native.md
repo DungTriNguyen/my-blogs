@@ -1,15 +1,6 @@
 ---
 outline: deep
 ---
-<!-- <iframe
-  width="100%"
-  height="420"
-  src="/videos/deploy.mov"
-  title="HotUpdater Video"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe> -->
 
 # [Hot Updater](https://hot-updater.dev/) [CloudFlare](https://www.cloudflare.com/)
 
@@ -18,7 +9,7 @@ outline: deep
 Hot Updater is a powerful alternative to react-native-codepush that provides self-hostable Over-The-Air (OTA) update capabilities for React Native applications. Unlike traditional app store updates, Hot Updater allows you to instantly update your JavaScript bundle, enabling rapid deployment of bug fixes and feature updates without waiting for app store approval.
 
 <video width="100%" height="480" controls>
- <source src="./videos/deploy.mov" type="video/webm">
+ <source src="./public/videos/deploy.mov" type="video/webm">
 </video>
 
 ## Tại sao phải sử dụng Hot Updater
