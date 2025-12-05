@@ -18,8 +18,7 @@ outline: deep
 Hot Updater is a powerful alternative to react-native-codepush that provides self-hostable Over-The-Air (OTA) update capabilities for React Native applications. Unlike traditional app store updates, Hot Updater allows you to instantly update your JavaScript bundle, enabling rapid deployment of bug fixes and feature updates without waiting for app store approval.
 
 <video width="100%" height="480" controls>
-  <source src="./public/videos/deploy.mov" type="video/quicktime" />
-  Trình duyệt của bạn không hỗ trợ video.
+ <source src="./videos/deploy.mov" type="video/webm">
 </video>
 
 ## Tại sao phải sử dụng Hot Updater
@@ -29,76 +28,32 @@ Multi-Platform Support: Seamless compatibility with both iOS and Android platfor
 Flexible Deployment: Support for multiple environments and channels
 
 ## AWS S3 Storage + Lambda@Edge
+
 In this comprehensive guide, we'll walk through setting up Hot Updater using the AWS S3 Storage + Lambda@Edge Function provider for storing React Native bundles in the cloud. Hot Updater supports multiple providers as shown below.
 
-## Mô hình Connect
+![AWS S3 Storage + Lambda@Edge Function provider](./public/images/hot-updater-ws3.webp)
 
-![Firebase System](./public/images/firebase-system.png)
+## Prerequisites before config
 
-### Bước 1: Tạo project ở [firebase console](https://console.firebase.google.com/u/1/)
+### System Requirements
 
-![Firebase System](./public/images/firebase-console-project.png)
+- Node.js: Version 20 or later (recommended for optimal performance)
+- React Native Development Environment: Properly configured for your target platforms
 
-### Bước 2: Cài package cần thiết
+### AWS Requirements
 
-```md
-# Install & setup the app module
+- AWS Account: Sign up at AWS if you don't have an existing account
+- AWS CLI: Install the AWS CLI and configure your credentials with appropriate permissions
 
-yarn add @react-native-firebase/app
+### Additional Tools
 
-# Install the messaging module
+- Package Manager: Yarn or npm
+- Code Editor: VS Code or your preferred IDE
 
-yarn add @react-native-firebase/messaging
-```
+## Step-by-Step Setup Guide
 
-### Bước 3: Tạo App trong project đã tạo ở firebase console (IOS/android)
+Can you follow site dev.to: [devto](https://dev.to/ajmal_hasan/complete-guide-ota-setting-up-hot-updater-with-aws-s3-and-lambdaedge-for-react-native-11mb)
 
-![Firebase System](./public/images/firebase-project-ios.png)
-
-### Bước 4: Tải file GoogleService-Info.plist (IOS), google-services.json (android) và config trong app.json
-
-```md
-{
-  "expo": {
-    "android": {
-      "googleServicesFile": "./google-services.json",
-      "package": "com.mycorp.myapp"
-    },
-    "ios": {
-      "googleServicesFile": "./GoogleService-Info.plist",
-      "bundleIdentifier": "com.mycorp.myapp"
-    },
-    "plugins": [
-      "@react-native-firebase/app",
-      "@react-native-firebase/auth",
-      "@react-native-firebase/crashlytics",
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "useFrameworks": "static"
-          }
-        }
-      ]
-    ]
-  }
-}
-```
-
-### Bước 5: Configure Firebase with iOS credentials (react-native 0.77+)
-
-[Configure Firebase with iOS credentials (react-native 0.77+)](https://rnfirebase.io/#configure-firebase-with-ios-credentials-react-native-077)
-
-### Bước 6: For IOS => config: steps by steps
-
-[iOS Messaging Setup | React Native Firebase](https://rnfirebase.io/messaging/usage/ios-setup)
-
-Note: config error in podfile [Swift pods cannot yet be integrated as static libraries FirebaseCoreInternal-library](https://stackoverflow.com/questions/72289521/swift-pods-cannot-yet-be-integrated-as-static-libraries-firebasecoreinternal-lib)
-
-### Bước 7: Setup in frontend (layout.tsx or App.tsx)
-
-[Cloud Messaging | React Native Firebase](https://rnfirebase.io/messaging/usage#android---requesting-permissions)
-
-### Bước 8: Build in xcode and test
+follow config as hot-updater React native: [hot-updater](https://hot-updater.dev/docs/get-started/introduction/)
 
 ## Thanks you
