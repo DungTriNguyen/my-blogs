@@ -25,6 +25,10 @@ export default defineConfig({
             text: "Hot Updater Cloudflare (React Native)",
             link: "/hot-updater-cloudflare-react-native",
           },
+          {
+            text: "Login with Google Auth (React Native)",
+            link: "/google-react-native-authentication",
+          },
         ],
       },
     ],
