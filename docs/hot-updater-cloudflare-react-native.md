@@ -12,7 +12,7 @@ Hot Updater is a powerful alternative to react-native-codepush that provides sel
  <source src="./public/videos/deploy.mov" type="video/webm">
 </video>
 
-## Tại sao phải sử dụng Hot Updater
+## Why must uses hot updater
 
 Self-Hosting: Maintain complete control over your update infrastructure and data
 Multi-Platform Support: Seamless compatibility with both iOS and Android platforms
