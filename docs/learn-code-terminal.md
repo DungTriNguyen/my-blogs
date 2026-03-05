@@ -27,6 +27,10 @@ ls -lh: Hiển thị dung lượng dễ đọc
 
 `cd ~`
 
+### Quay lại thư mục vừa đứng trước đó
+
+`cd -`
+
 ### Hiển thị cấu trúc thư mục dạng cây
 
 `tree`
@@ -82,7 +86,7 @@ tail file: Xem 10 dòng cuối file
 ```
 find . -name "tên_file"
 grep "keyword" tên_file
-grep -r "keyword" : Tìm keyword toàn bộ project
+grep -r "keyword" . : Tìm keyword toàn bộ project
 ```
 
 ### Thay đổi quyền
@@ -112,7 +116,7 @@ du -sh *
 ps aux: Xem process đang chạy
 ps aux | grep node
 history | grep docker
-top: Xem process realtime
+top/htop: Xem process realtime
 kill PID: kill process
 kill -9 PID : force kill
 npx npkill: Kiểm tra node_module của các source để xoá
@@ -122,10 +126,10 @@ npx npkill: Kiểm tra node_module của các source để xoá
 
 ```
 ping google.com
-lsof -i :3000  : Kiểm tra port
+lsof -i :3000  : Kiểm tra port có đang listening
 curl https://link : Download file, gửi yêu cầu server
 ipconfig : Kiểm tra ip máy win
-ifconfig / ip a : Kiểmt tra ip máy mac
+ifconfig / ip a : Kiểm tra ip máy mac
 ```
 
 ### Một số phím tắt khác
@@ -138,6 +142,7 @@ Ctrl + E	Về cuối dòng
 Ctrl + L	Clear màn hình
 Ctrl + R    search history
 Ctrl + D    logout terminal
+Ctrl + W    xóa 1 word phía trước cursor
 Tab	        Auto complete
 ↑	        Lệnh trước đó
 ```
@@ -161,6 +166,7 @@ curl -H "" link : Thêm vào header khi gửi request
 curl -v link : Xem cả request và response
 curl -r 0-3000 link : thêm range cho phần request (partial content)
 curl -X POST link : chỉ định HTTP method cho request (cho bt loại request nào gửi tới server)
+curl -d '{"name":"dung"}' : gửi thêm body
 ```
 
 ### Tạo QR code từ url
