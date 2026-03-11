@@ -29,9 +29,13 @@ export default defineConfig({
             text: "Login with Google Auth (React Native)",
             link: "/google-react-native-authentication",
           },
-            {
+          {
             text: "Learn Code Terminal",
             link: "/learn-code-terminal",
+          },
+          {
+            text: "Compare Flashlist vs Flatlist vs ScrollView",
+            link: "/compare-flashlist-vs-flatlist-vs-scrollview",
           },
         ],
       },
