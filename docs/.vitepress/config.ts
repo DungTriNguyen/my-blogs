@@ -41,6 +41,10 @@ export default defineConfig({
             text: "Làm Chủ Dòng Lệnh Terminal",
             link: "/learn-code-terminal",
           },
+          {
+            text: "Compare Flashlist vs Flatlist vs ScrollView",
+            link: "/compare-flashlist-vs-flatlist-vs-scrollview",
+          },
         ],
       },
     ],
