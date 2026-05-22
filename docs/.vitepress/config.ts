@@ -2,43 +2,49 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "dung-nguyen-blog",
-  description: "A VitePress Site",
+  title: "Dũng Nguyễn Blog",
+  description: "Chia sẻ kinh nghiệm thực chiến lập trình React Native, tối ưu hiệu năng và quy chuẩn Clean Code.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
-    ],
+    nav: [{ text: "Trang chủ", link: "/" }],
 
     sidebar: [
       {
-        text: "Examples",
+        text: "📱 Lập Trình React Native",
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
           {
-            text: "Firebase FCM (React Native)",
+            text: "Firebase FCM Cloud Messaging",
             link: "/react-native-with-firebase-fcm",
           },
           {
-            text: "Hot Updater Cloudflare (React Native)",
+            text: "Hot Updater OTA Cloudflare",
             link: "/hot-updater-cloudflare-react-native",
           },
           {
-            text: "Login with Google Auth (React Native)",
+            text: "Google Sign-In Authentication",
             link: "/google-react-native-authentication",
           },
-            {
-            text: "Learn Code Terminal",
+          {
+            text: "Xcode Instruments & Tối Ưu RAM",
+            link: "/instrument-performance",
+          },
+        ],
+      },
+      {
+        text: "💻 Kỹ Năng & Quy Chuẩn",
+        items: [
+          {
+            text: "Nghệ Thuật Viết Code Sạch",
+            link: "/clean-code",
+          },
+          {
+            text: "Làm Chủ Dòng Lệnh Terminal",
             link: "/learn-code-terminal",
           },
         ],
       },
     ],
 
-    socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/DungTriNguyen" }],
   },
 });

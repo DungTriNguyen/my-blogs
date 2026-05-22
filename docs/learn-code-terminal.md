@@ -1,183 +1,164 @@
-# Một số lệnh từ cơ bản đến nâng cao khi làm việc với terminal
+---
+title: Cẩm Nang Lệnh Terminal Từ Cơ Bản Đến Nâng Cao
+description: Tổng hợp đầy đủ các lệnh Unix/Linux Shell, điều hướng thư mục, quản lý tiến trình, mạng, phím tắt và làm việc với cURL API dành cho lập trình viên.
+outline: deep
+---
 
-## 1. Điều hướng thư mục
+# 💻 Cẩm Nang Lệnh Terminal Từ Cơ Bản Đến Nâng Cao
 
-### xem thư mục hiện tại
+> [!TIP]
+> **Làm chủ dòng lệnh (CLI):** Sử dụng thành thạo Terminal không chỉ giúp bạn tăng tốc độ làm việc lên gấp nhiều lần mà còn là kỹ năng bắt buộc đối với một kỹ sư phần mềm chuyên nghiệp khi làm việc với Docker, Server, CI/CD hoặc các công cụ tự động hóa.
 
-`pwd`
+---
 
-### Liệt kê file/thư mục
+## 📂 1. Điều Hướng Thư Mục (Directory Navigation)
 
-```
-ls : Hiển thị danh sách chung
-ls -l: Xem quyền
-ls -a : Hiển cả các file ẩn
-ls -lh: Hiển thị dung lượng dễ đọc
-```
+| Lệnh | Ý nghĩa chức năng |
+| :--- | :--- |
+| `pwd` | Hiển thị đường dẫn tuyệt đối của thư mục hiện tại (Print Working Directory). |
+| `cd [path]` | Di chuyển vào thư mục chỉ định. |
+| `cd ..` | Quay lại thư mục cha (cấp cao hơn 1 bậc). |
+| `cd ~` | Quay nhanh về thư mục gốc của người dùng (Home directory). |
+| `cd -` | Quay lại thư mục làm việc vừa đứng ngay trước đó. |
+| `tree` | Hiển thị cấu trúc sơ đồ hình cây của toàn bộ thư mục và tệp tin con. |
 
-### Di chuyển vào thư mục
+### 🔍 Liệt kê tệp tin và thư mục (`ls`):
+* `ls` : Hiển thị danh sách tệp tin cơ bản.
+* `ls -l` : Xem chi tiết thông số tệp tin (quyền sở hữu, kích thước, ngày sửa đổi).
+* `ls -a` : Hiển thị tất cả các tệp tin bao gồm cả tệp ẩn (bắt đầu bằng dấu chấm `.`).
+* `ls -lh` : Hiển thị dung lượng tệp tin dưới dạng dễ đọc (ví dụ: KB, MB, GB).
 
-`cd  ten_thu_muc`
+---
 
-### Quay lại thư mục trước đó
+## 🛠️ 2. Quản Lý File & Thư Mục (File System Management)
 
-`cd ..`
+```bash
+# Tạo một tệp tin rỗng mới
+touch test.txt
 
-### Quay về thư mục home
+# Ghi hoặc chèn nội dung vào tệp tin
+echo "Hello World" > test.txt      # Ghi đè nội dung mới hoàn toàn
+echo "Line 2" >> test.txt          # Ghi nối tiếp vào dòng tiếp theo
 
-`cd ~`
+# Tạo một thư mục mới
+mkdir my_project
 
-### Quay lại thư mục vừa đứng trước đó
+# Xóa tệp tin
+rm test.txt
 
-`cd -`
+# Xóa thư mục con và toàn bộ dữ liệu bên trong (đệ quy - recursive)
+rm -r my_project
 
-### Hiển thị cấu trúc thư mục dạng cây
+# Sao chép tệp tin
+cp file_source.txt file_dest.txt
 
-`tree`
+# Sao chép toàn bộ thư mục
+cp -r folder_source folder_dest
 
-## 2. Quản lý file và thư mục
-
-### Tạo file
-
-`touch ten_file`
-
-### Ghi nội dung file
-
-`echo "hello" > file`
-
-### Tạo thư mục
-
-`mkdir ten_folder`
-
-### Xoá file
-
-`rm ten_file`
-
-### Xoá thư mục
-
-`rm -r ten_folder`
-
-### Copy file
-
-`cp file_1 file_2`
-
-### Copy thư mục
-
-`cp -r folder_1 folder_2`
-
-### Di chuyển hoặc đổi tên file
-
-`mv file_1 file_2`
-
-### Xem toàn bộ nội dung file
-
-`cat file`
-
-### Xem từng phần file
-
-```
-less file: Xem từng trang
-head file: Xem 10 dòng đầu file
-tail file: Xem 10 dòng cuối file
+# Di chuyển hoặc đổi tên tệp tin/thư mục
+mv old_name.txt new_name.txt
 ```
 
-### Tìm kiếm file
+### 👁️ Đọc và tìm kiếm nội dung file:
+* `cat file.txt` : Đọc toàn bộ nội dung tệp tin ra màn hình.
+* `less file.txt` : Đọc tệp tin dạng phân trang (dùng phím mũi tên lên/xuống để cuộn).
+* `head -n 10 file.txt` : Xem nhanh 10 dòng đầu tiên của tệp.
+* `tail -n 10 file.txt` : Xem nhanh 10 dòng cuối cùng (thường dùng để đọc file Log).
+* `find . -name "*.js"` : Tìm kiếm tất cả tệp tin có đuôi mở rộng là `.js` từ thư mục hiện tại.
+* `grep "error" app.log` : Tìm kiếm từ khóa `"error"` nằm trong tệp tin `app.log`.
+* `grep -r "TODO" .` : Tìm kiếm đệ quy từ khóa `"TODO"` trong toàn bộ dự án hiện tại.
 
-```
-find . -name "tên_file"
-grep "keyword" tên_file
-grep -r "keyword" . : Tìm keyword toàn bộ project
-```
+---
 
-### Thay đổi quyền
+## ⚙️ 3. Quản Lý Quyền & Tài Nguyên Hệ Thống
 
-```
-chmod 755 file.sh
-```
+```bash
+# Thay đổi quyền truy cập của tệp tin (cho phép thực thi)
+chmod 755 script.sh
 
-### Kiểm tra dung lượng
-
-```
+# Kiểm tra dung lượng ổ đĩa của hệ thống
 df -h
+
+# Kiểm tra dung lượng của các tệp tin/thư mục cục bộ
 du -sh *
+
+# Xem dung lượng RAM còn trống của máy (Linux)
+free -h
+
+# Xem thông tin nhân hệ điều hành đang sử dụng
+uname -a
 ```
 
-### Kiểm tra RAM
+### ⚡ Làm việc với Tiến trình (Process Control):
+* `ps aux` : Liệt kê tất cả các tiến trình đang chạy trên hệ thống.
+* `ps aux | grep node` : Tìm kiếm nhanh ID của tiến trình Node.js đang hoạt động.
+* `history | grep docker` : Tìm lại lịch sử câu lệnh liên quan đến docker đã từng chạy.
+* `top` hoặc `htop` : Giao diện thời gian thực giám sát CPU, RAM và tiến trình.
+* `kill [PID]` : Yêu cầu đóng tiến trình có ID chỉ định một cách an sau.
+* `kill -9 [PID]` : Cưỡng chế tắt ngay lập tức tiến trình (Force Kill).
+* `npx npkill` : Công cụ dọn dẹp cực nhanh các thư mục `node_modules` chiếm dung lượng lớn trong ổ đĩa của bạn.
 
-`free -h`
+---
 
-### Kiểm tra OS
+## 🌐 4. Quản Lý Mạng & Giao Tiếp API
 
-`uname -a`
-
-### Lệnh liên quan tới process
-
-```
-ps aux: Xem process đang chạy
-ps aux | grep node
-history | grep docker
-top/htop: Xem process realtime
-kill PID: kill process
-kill -9 PID : force kill
-npx npkill: Kiểm tra node_module của các source để xoá
-```
-
-### Lệnh network
-
-```
+```bash
+# Kiểm tra độ trễ mạng tới máy chủ
 ping google.com
-lsof -i :3000  : Kiểm tra port có đang listening
-curl https://link : Download file, gửi yêu cầu server
-ipconfig : Kiểm tra ip máy win
-ifconfig / ip a : Kiểm tra ip máy mac
+
+# Kiểm tra xem Port 3000 có đang bị ứng dụng nào chiếm dụng hay không
+lsof -i :3000
+
+# Lệnh kiểm tra cấu hình IP máy tính
+ipconfig      # Đối với hệ điều hành Windows
+ifconfig      # Đối với macOS hoặc Linux (hoặc dùng 'ip a')
 ```
 
-### Một số phím tắt khác
+### 📡 Giao tiếp mạng nâng cao với `cURL`:
+* `curl -I https://api.site.com` : Chỉ lấy phần Header phản hồi từ máy chủ (tiết kiệm băng thông).
+* `curl -L https://short.link` : Tự động chuyển hướng theo liên kết redirection.
+* `curl -H "Authorization: Bearer KEY" https://api.site.com` : Gửi kèm thông tin Header xác thực.
+* `curl -v https://api.site.com` : Bật chế độ verbose hiển thị chi tiết luồng gửi nhận request.
+* `curl -X POST -d '{"name":"Dũng"}' -H "Content-Type: application/json" https://api.com/users` : Gửi yêu cầu HTTP POST kèm dữ liệu Body dạng JSON.
 
+---
+
+## ⌨️ 5. Phím Tắt Terminal Quyền Lực (Hotkeys Cheatsheet)
+
+Sử dụng phím tắt giúp bạn thao tác nhanh như chớp trên màn hình console mà không cần dùng chuột:
+
+| Phím tắt | Chức năng hành động |
+| :--- | :--- |
+| <kbd>Ctrl</kbd> + <kbd>C</kbd> | Hủy/Dừng ngay lập tức lệnh đang thực thi. |
+| <kbd>Ctrl</kbd> + <kbd>Z</kbd> | Tạm dừng (Pause) tiến trình hiện tại và đưa vào hàng đợi nền. |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> | Di chuyển con trỏ nhanh về **đầu dòng** lệnh đang viết. |
+| <kbd>Ctrl</kbd> + <kbd>E</kbd> | Di chuyển con trỏ nhanh về **cuối dòng** lệnh đang viết. |
+| <kbd>Ctrl</kbd> + <kbd>L</kbd> | Xóa sạch màn hình Terminal hiển thị (tương đương lệnh `clear`). |
+| <kbd>Ctrl</kbd> + <kbd>R</kbd> | Tìm kiếm lại các câu lệnh trong lịch sử sử dụng (Reverse Search). |
+| <kbd>Ctrl</kbd> + <kbd>W</kbd> | Xóa nhanh 1 từ đứng trước con trỏ hiện tại. |
+| <kbd>Tab</kbd> | Tự động điền nốt tên file/thư mục (Auto-complete). |
+| Phím mũi tên <kbd>↑</kbd> / <kbd>↓</kbd> | Xem lại các câu lệnh đã chạy trước đó. |
+
+---
+
+## 🎨 6. Thủ Thuật Thú Vị: Tạo Mã QR Ngay Trên Terminal
+
+Bạn hoàn toàn có thể tạo nhanh một tệp ảnh QR chứa liên kết hoặc văn bản từ Terminal bằng một trong hai cách đơn giản sau:
+
+### Cách 1: Sử dụng cURL gọi API bên ngoài
+```bash
+curl "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/DungTriNguyen" -o my_qr.png
 ```
-Ctrl + C	Dừng lệnh
-Ctrl + Z	Pause process
-Ctrl + A	Về đầu dòng
-Ctrl + E	Về cuối dòng
-Ctrl + L	Clear màn hình
-Ctrl + R    search history
-Ctrl + D    logout terminal
-Ctrl + W    xóa 1 word phía trước cursor
-Tab	        Auto complete
-↑	        Lệnh trước đó
+
+### Cách 2: Sử dụng gói công cụ `qrencode` cục bộ
+```bash
+# Cài đặt qua Homebrew (macOS)
+brew install qrencode
+
+# Tạo file QR cực nhanh
+qrencode -o my_qr.png "https://github.com/DungTriNguyen"
 ```
 
-### Một số lệnh hữu ích khác
+---
 
-```
-history : Kiểm tra lịch sử chạy lệnh
-sudo command : Chạy với quyền admin
-!!  : Chạy lệnh trước đó
-clear : clear màn hình terminal
-history -c : Xóa history thật
-```
-
-### Làm việc với api
-
-```
-curl -I link : Chỉ xem header của request gửi đi
-curl -L link : Xem được flow direction
-curl -H "" link : Thêm vào header khi gửi request
-curl -v link : Xem cả request và response
-curl -r 0-3000 link : thêm range cho phần request (partial content)
-curl -X POST link : chỉ định HTTP method cho request (cho bt loại request nào gửi tới server)
-curl -d '{"name":"dung"}' : gửi thêm body
-```
-
-### Tạo QR code từ url
-
-```
-ví dụ: https://minhshop.vn/danh-muc-san-pham/tim-kiem-0?k=babolat&s=Price_DESC&i=0&pn=1&ps=20
-
-Cách 1:
->> curl "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://minhshop.vn/danh-muc-san-pham/tim-kiem-0?k=babolat&s=Price_DESC&i=0&pn=1&ps=20" -o qr.png
->> open qr.png
-
-Cách 2: brew install qrencode
->> qrencode -o qr.png "https://minhshop.vn/danh-muc-san-pham/tim-kiem-0?k=babolat&s=Price_DESC&i=0&pn=1&ps=20"
-```
+> **Hãy lưu lại cẩm nang này và chúc bạn trở thành một chuyên gia Terminal thực thụ! 🚀**
